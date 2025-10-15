@@ -1,0 +1,139 @@
+<!DOCTYPE html> <!-- Tell the browser this is HTML5 -->
+<html lang="en"> <!-- Start of the page; primary language is English -->
+<head> <!-- Hidden setup area -->
+  <meta charset="UTF-8" /> <!-- Support all normal characters -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Fit phones -->
+  <title>Speak & Use</title> <!-- Text on the browser tab -->
+  <link rel="stylesheet" href="style.css" /> <!-- Attach our styles -->
+</head>
+<body> <!-- Everything visible goes here -->
+  <header class="app-header"> <!-- Top section of the page -->
+    <h1 class="app-title">Speak & Use</h1> <!-- Big app title -->
+    <p class="app-tagline">One word a day, clearly said.</p> <!-- Short description -->
+  </header>
+
+  <main class="container"> <!-- Center content and set max width -->
+  <section id="screen-home" class="screen active">
+  <div class="card word-card">
+    <div class="word-row">
+      <h2 id="wordText" class="word">concise</h2>
+      <span id="partOfSpeech" class="pos">adjective</span>
+    </div>
+    <div id="ipa" class="ipa">/kənˈsaɪs/</div>
+
+    <h3 class="section-title">Meaning</h3>
+    <p id="meaning" class="meaning">
+      Expressing much in few words; short and clear.
+    </p>
+
+    <h3 class="section-title">Examples</h3>
+    <ul id="examples" class="examples">
+      <li>Keep your email concise.</li>
+      <li>The guide is concise and useful.</li>
+      <li>Please be concise during the meeting.</li>
+    </ul>
+
+    <h3 class="section-title">How to use it</h3>
+    <p id="tip" class="meaning">
+      Often used with “be” (be concise) or before a noun (a concise summary).
+    </p>
+
+    <div class="actions">
+      <button id="btnSpeak" class="btn primary">▶️ Hear Pronunciation</button>
+      <button id="btnSpeakWordOnly" class="btn">🔊 Say Word Only</button>
+      <button id="btnAnother" class="btn">🎲 Another Word</button>
+      <button id="btnGenerate" class="btn">✨ Generate Word</button>
+      <button id="btnToggleMastered" class="btn">✅ Mark as Mastered</button>
+      <button id="btnShare" class="btn">📋 Share Today’s Word</button>
+    </div>
+
+    <div class="meta">
+  <span id="seenToday">Seen today: yes</span>
+  <span>•</span>
+  <span id="historyCount">History: 12 words</span>
+  <span>•</span>
+  <span id="masteredBadge" style="display:none;">✓ Mastered</span>
+</div>
+</section>
+
+
+    <section id="screen-history" class="screen"> <!-- History screen (hidden now) -->
+      <div class="card">
+        <h2>History</h2>
+        <input id="searchHistory" class="input" type="text" placeholder="Search words..." />
+        <ul id="historyList" class="list"></ul> <!-- Will fill it later with JS -->
+        <button id="btnClearHistory" class="btn danger">Clear History</button>
+      </div>
+    </section>
+
+    <section id="screen-settings" class="screen"> <!-- Settings screen (hidden now) -->
+      <div class="card">
+        <h2>Settings</h2>
+        <hr style="margin:16px 0; border:none; border-top:1px solid var(--border);" />
+
+<h3 class="section-title">Add Your Own Word</h3>
+
+<div class="setting-row" style="flex-direction:column; align-items:stretch;">
+  <label for="inWord">Word *</label>
+  <input id="inWord" class="input" type="text" placeholder="e.g., negotiate" />
+</div>
+
+<div class="setting-row" style="flex-direction:column; align-items:stretch;">
+  <label for="inPos">Part of Speech</label>
+  <input id="inPos" class="input" type="text" placeholder="e.g., verb, noun, adjective" />
+</div>
+
+<div class="setting-row" style="flex-direction:column; align-items:stretch;">
+  <label for="inIpa">IPA (optional)</label>
+  <input id="inIpa" class="input" type="text" placeholder="/nɪˈɡoʊ.ʃi.eɪt/" />
+</div>
+
+<div class="setting-row" style="flex-direction:column; align-items:stretch;">
+  <label for="inMeaning">Meaning *</label>
+  <textarea id="inMeaning" class="input" rows="2" placeholder="Simple one-sentence explanation"></textarea>
+</div>
+
+<div class="setting-row" style="flex-direction:column; align-items:stretch;">
+  <label for="inExamples">Examples (one per line, need at least 2) *</label>
+  <textarea id="inExamples" class="input" rows="4" placeholder="I will negotiate a better price.&#10;They negotiated the contract terms."></textarea>
+</div>
+
+<div class="setting-row" style="flex-direction:column; align-items:stretch;">
+  <label for="inTip">Usage Tip (optional)</label>
+  <input id="inTip" class="input" type="text" placeholder="Often used with 'with/for/over'..." />
+</div>
+
+<div class="actions">
+  <button id="btnSaveWord" class="btn primary">💾 Save Word</button>
+  <button id="btnClearForm" class="btn">🧹 Clear Form</button>
+</div>
+
+        <div class="setting-row">
+          <label>Daily Word Time</label>
+          <input id="dailyTime" class="input" type="time" value="09:00" />
+        </div>
+        <div class="setting-row">
+          <label>Auto-speak when opening from History</label>
+          <input id="chkAutoSpeak" type="checkbox" />
+        </div>
+        <div class="setting-row">
+          <label>Theme</label>
+          <div class="segmented">
+            <button class="seg active" data-theme="light">Light</button>
+            <button class="seg" data-theme="dark">Dark</button>
+        </div>
+        </div>
+        <button id="btnResetToday" class="btn">Reset Today’s Word</button>
+      </div>
+    </section>
+  </main>
+
+  <nav class="tabbar"> <!-- Bottom tabs -->
+    <button class="tab active" data-target="screen-home">Home</button>
+    <button class="tab" data-target="screen-history">History</button>
+    <button class="tab" data-target="screen-settings">Settings</button>
+  </nav>
+
+  <script src="script.js"></script> <!-- We’ll add behavior soon -->
+</body>
+</html>
