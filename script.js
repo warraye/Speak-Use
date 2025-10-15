@@ -575,4 +575,8 @@ btnClearForm?.addEventListener('click', clearAddForm);
 
   // Show initial screen
   showScreen('screen-home');
+
+  if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./service-worker.js");
+}
 })();
